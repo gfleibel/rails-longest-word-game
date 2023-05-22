@@ -1,0 +1,29 @@
+require 'open-uri'
+
+class GamesController < ApplicationController
+  def new
+    @letters = ('A'..'Z').to_a.shuffle.sample(10)
+    @score = session[:score]
+  end
+
+  def score
+    @word = params[:word].downcase.split("")
+    @score = 0
+    url = "https://wagon-dictionary.herokuapp.com/#{params[:word]}"
+    @response = JSON.parse(URI.open(url).read)
+    @letters = params[:letters].downcase.split
+    if (@word & @letters) != @word
+      @message = "Sorry, but #{params[:word]} can't be  built out of #{@letters.join(", ").upcase}."
+    elsif (@word & @letters) == @word && @response["found"] == true
+      @message = "The word #{params[:word]} is valid according to the grid and is an English word."
+      @score += @word.size
+      if session[:score]
+        session[:score] += @score
+      else
+        session[:score] = 0
+      end
+    else
+      @message = "The word #{params[:word]} is valid according to the grid, but is not a valid English word."
+    end
+  end
+end
