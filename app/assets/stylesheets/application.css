@@ -1,15 +1,153 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+body p{
+  color: rgb(0, 0, 0);
+}
+
+img{
+  width: 70%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.gamearea{
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 200px auto;
+  background-color: rgb(168, 182, 247);
+  display: flex;
+  flex-direction: column;
+  padding: 50px 40px;
+  overflow: hidden;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.gamearea h1{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.detail{
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+  color: #000000;
+  width: 150px;
+  height: 30px;
+  align-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letters{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 0.2rem;
+}
+
+.letter{
+  background-color: #fff;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.message{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input{
+  border: none;
+  border-radius: 4px;
+  height: 2rem;
+  background-color: #fff;
+}
+
+.form-btn{
+  border: none;
+  border-radius: 4px;
+  height: 2rem;
+  width: 100px;
+  background-color: #84e;
+  color: #fff;
+  font-weight: bold;
+}
+
+a.form-btn{
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 120px;
+}
+
+
+.form-btn:hover, a.form-btn:hover{
+  scale: 1.05;
+  cursor: pointer;
+  transition: all .3s;
+  background-color: rgb(169, 111, 255);
+}
+
+
+.reset-btn{
+  border: none;
+  border-radius: 4px;
+  height: 2rem;
+  width: 140px;
+  background-color: rgb(197, 197, 197);
+  color: #000000;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.reset-btn:hover{
+  scale: 1.05;
+  cursor: pointer;
+  transition: all .3s;
+  background-color: rgb(243, 156, 156);
+}

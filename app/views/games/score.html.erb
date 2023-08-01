@@ -1,6 +1,14 @@
-<div class="container">
-  <h1 class="mt-5 mb-2">Result</h1>
-  <p><%= @message %></p>
-  <p>Points: <%=@score%></p>
-  <%= link_to "Play again", "/new", class: "btn btn-primary" %>
+<div class="gamearea">
+  <h1>Result</h1>
+  <p class="message"><%= @message %></p>
+  <p class="detail">Points: <%=@score%></p>
+  <% if session[:counter] == 0 %>
+    <%= form_tag(reset_score_path, method: :post) do %>
+      <%= button_tag(type: 'submit', class: 'reset-btn') do %>
+        Reset Game
+      <% end %>
+    <% end %>
+  <% else %>
+   <%= link_to "Play again", "/new", class: "form-btn" %>
+  <% end %>
 </div>

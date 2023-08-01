@@ -1,19 +1,30 @@
-<div class="container">
-  <h1 class="mb-3 mt-5">New game</h1>
-  <p>Score: <%=session[:score]%></p>
-  <div class="d-flex gap-2">
+<div class="gamearea">
+  <img src="https://www.puzzlegame.com/games/Guess-Word/adapter/logo.png" alt="logo">
+  <div class="info">
+    <p class="detail">Score: <%=session[:score]%></p>
+    <p class="detail">Available tries: <%= session[:counter] %></p>
+  </div>
+  <div class="letters">
     <% @letters.each do |letter|%>
-    <p class="badge text-bg-primary p-4"><%= letter %></p>
+    <p class="letter"><%= letter %></p>
     <% end %>
   </div>
 
-  <p>What is the longest word you can find?</p>
-  <form class="form-inline" action="score" method="post" data-turbo="false">
-    <div class="d-flex gap-2">
-      <input class="form-control w-50" type="text" name="word">
-      <input class="btn btn-primary" type="submit" value="Play">
-    </div>
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= hidden_field_tag :letters, @letters %>
-  </form>
+  <p class="message">What is the longest word you can find?</p>
+
+  <div class="form">
+    <form action="score" method="post" data-turbo="false">
+        <input class="form-input" type="text" name="word">
+        <input class="form-btn" type="submit" value="Play">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+    </form>
+    <%= form_tag(reset_score_path, method: :post) do %>
+    <%= button_tag(type: 'submit', class: 'reset-btn') do %>
+      Reset Game
+    <% end %>
+    <% end %>
+  </div>
+
+
 </div>
